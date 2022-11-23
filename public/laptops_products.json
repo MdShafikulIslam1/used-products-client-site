@@ -1,0 +1,35 @@
+[
+    [
+        {
+            "category_id": 1,
+            "category_name": "Dell"
+        },
+        {
+            "img": "https://i.ibb.co/LptJzBw/dell1.jpg",
+            "title": "Used Dell Latitude E6420",
+            "location": "Horinabar,palashbari,Gaibandha",
+            "resale_price": "7000",
+            "original_price": "12000",
+            "used_time": "2",
+            "seller_name": "Shofikul Islam"
+        },
+        {
+            "img": "https://i.ibb.co/0YswzFJ/dell2.webp",
+            "title": "Used Dell Latitude F3020",
+            "location": "Nakaihat,Gobindogonj,Gaibandha",
+            "resale_price": "12000",
+            "original_price": "20000",
+            "used_time": "3",
+            "seller_name": "Iftikar Rahman"
+        },
+        {
+            "img": "https://i.ibb.co/mzZvj8R/dell3.jpg",
+            "title": "Used Dell Latitude G6420",
+            "location": "mirpur,Dhaka",
+            "resale_price": "5000",
+            "original_price": "15000",
+            "used_time": "3",
+            "seller_name": "Ziyanur Hasan"
+        }
+    ]
+]

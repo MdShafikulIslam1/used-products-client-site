@@ -1,10 +1,11 @@
 import React from 'react';
+import CarouselBanner from '../CarouselBanner/CarouselBanner';
 
 const Home = () => {
     return (
         <div>
-            <h1>This is home page..</h1>
 
+            <CarouselBanner></CarouselBanner>
         </div>
     );
 };
