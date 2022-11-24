@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, loginWithGoogle } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
@@ -22,6 +22,15 @@ const Login = () => {
                 console.log(err.message);
             })
 
+    }
+    const handleLoginWithGoogle = () => {
+        loginWithGoogle()
+            .then(() => {
+                toast.success("Login with google successfully")
+            })
+            .catch(() => {
+
+            })
     }
     return (
 
@@ -51,11 +60,13 @@ const Login = () => {
                                 className="input input-bordered" />
                             {errors.email && <p className='text-red-900'>{errors.email.message}</p>}
                         </div>
-                        <input type="submit" value="Login" className='btn btn-primary mt-6' />
+                        <input type="submit" value="Login" className='btn btn-primary mt-2' />
                     </div>
 
                 </form>
-                <p className='p-3 text-center'>Are you new here? <Link className='text-purple-800' to='/signup'>Sign Up</Link> </p>
+                <p className=' p-3 text-center'>Are you new here? <Link className='text-purple-800' to='/signup'>Sign Up</Link> </p>
+                <div className="divider">OR</div>
+                <button onClick={handleLoginWithGoogle} className='btn btn-outline btn-primary'>SignIn With Google</button>
             </div>
         </div>
 
