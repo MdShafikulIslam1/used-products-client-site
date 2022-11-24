@@ -1,35 +1,101 @@
 [
-    [
-        {
-            "category_id": 1,
-            "category_name": "Dell"
-        },
-        {
-            "img": "https://i.ibb.co/LptJzBw/dell1.jpg",
-            "title": "Used Dell Latitude E6420",
-            "location": "Horinabar,palashbari,Gaibandha",
-            "resale_price": "7000",
-            "original_price": "12000",
-            "used_time": "2",
-            "seller_name": "Shofikul Islam"
-        },
-        {
-            "img": "https://i.ibb.co/0YswzFJ/dell2.webp",
-            "title": "Used Dell Latitude F3020",
-            "location": "Nakaihat,Gobindogonj,Gaibandha",
-            "resale_price": "12000",
-            "original_price": "20000",
-            "used_time": "3",
-            "seller_name": "Iftikar Rahman"
-        },
-        {
-            "img": "https://i.ibb.co/mzZvj8R/dell3.jpg",
-            "title": "Used Dell Latitude G6420",
-            "location": "mirpur,Dhaka",
-            "resale_price": "5000",
-            "original_price": "15000",
-            "used_time": "3",
-            "seller_name": "Ziyanur Hasan"
-        }
-    ]
+    {
+        "category_id": "01",
+        "posted_date": "2 Decembar,2022",
+        "img": "https://i.ibb.co/LptJzBw/dell1.jpg",
+        "title": "Used Dell Latitude E6420",
+        "location": "Horinabar,palashbari,Gaibandha",
+        "resale_price": "7000",
+        "original_price": "12000",
+        "used_time": "2",
+        "seller_name": "Shofikul Islam"
+    },
+    {
+        "category_id": "01",
+        "posted_date": "5 Decembar,2022",
+        "img": "https://i.ibb.co/0YswzFJ/dell2.webp",
+        "title": "Used Dell Latitude F3020",
+        "location": "Nakaihat,Gobindogonj,Gaibandha",
+        "resale_price": "12000",
+        "original_price": "20000",
+        "used_time": "3",
+        "seller_name": "Iftikar Rahman"
+    },
+    {
+        "category_id": "01",
+        "posted_date": "10 Decembar,2022",
+        "img": "https://i.ibb.co/mzZvj8R/dell3.jpg",
+        "title": "Used Dell Latitude G6420",
+        "location": "mirpur,Dhaka",
+        "resale_price": "5000",
+        "original_price": "15000",
+        "used_time": "3",
+        "seller_name": "Ziyanur Hasan"
+    },
+    {
+        "category_id": "02",
+        "posted_date": "11 Decembar,2022",
+        "img": "https://i.ibb.co/wBQVxnJ/sony1.jpg",
+        "title": "SONY M3020",
+        "location": "godaun,palashbari,Gaibandha",
+        "resale_price": "7500",
+        "original_price": "18000",
+        "used_time": "4",
+        "seller_name": "Hasanul Islam"
+    },
+    {
+        "category_id": "02",
+        "posted_date": "9 Decembar,2022",
+        "img": "https://i.ibb.co/m8vxm91/sony2.jpg",
+        "title": "SONY MD2020",
+        "location": "borodoho,Gobindogonj,Gaibandha",
+        "resale_price": "10000",
+        "original_price": "21000",
+        "used_time": "3",
+        "seller_name": "Jahangir Rahman"
+    },
+    {
+        "category_id": "02",
+        "posted_date": "15 Decembar,2022",
+        "img": "https://i.ibb.co/g9mj6Pt/sony3.jpg",
+        "title": "SONY DH3020",
+        "location": "uttora,Dhaka",
+        "resale_price": "6000",
+        "original_price": "15000",
+        "used_time": "4",
+        "seller_name": "Sakib-al Hasan"
+    },
+    {
+        "category_id": "03",
+        "posted_date": "22 Decembar,2022",
+        "img": "https://i.ibb.co/16JMhRb/lenovo1.jpg",
+        "title": "LENOVO FEB205",
+        "location": "balua,palashbari,Gaibandha,Rangpur",
+        "resale_price": "7600",
+        "original_price": "22000",
+        "used_time": "5",
+        "seller_name": "Sabbir Islam"
+    },
+    {
+        "category_id": "03",
+        "posted_date": "17 Decembar,2022",
+        "img": "https://i.ibb.co/4sqdDLy/lenovo2.jpg",
+        "title": "LENOVO FCB235",
+        "location": "Takurgaon,Rangpur",
+        "resale_price": "13000",
+        "original_price": "20000",
+        "used_time": "1",
+        "seller_name": "Mahfuzar Rahman"
+    },
+    {
+        "category_id": "03",
+        "posted_date": "30 Decembar,2022",
+        "img": "https://i.ibb.co/H2VtS6q/lenovo3.png",
+        "title": "LENOVO FCB235",
+        "location": "Abdullahpur,Dhaka",
+        "resale_price": "5000",
+        "original_price": "15000",
+        "used_time": "4",
+        "seller_name": "Mottaleb Hasan"
+    }
 ]
