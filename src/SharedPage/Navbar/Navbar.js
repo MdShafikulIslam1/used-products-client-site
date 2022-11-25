@@ -30,7 +30,7 @@ const Navbar = () => {
                     <li><Link to='/signup'>Sign up</Link></li>
                 </>
         }
-
+        <li><Link to='/blog'>Blog</Link></li>
     </>
     return (
         <div className="navbar bg-gray-100">
