@@ -20,6 +20,7 @@ const AllProducts = () => {
             </div>
             <BookingModal
                 bookingsData={bookingsData}
+                setBookingsData={setBookingsData}
             ></BookingModal>
         </div>
     );
