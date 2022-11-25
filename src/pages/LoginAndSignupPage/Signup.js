@@ -7,22 +7,36 @@ import toast from 'react-hot-toast';
 const Signup = () => {
     const [signupError, setSignupError] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserName } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
     const handleSignup = data => {
         console.log(data.name);
+        const user = {
+            displayName: data.name
+        }
         createUser(data.email, data.password)
             .then(result => {
                 toast.success("User create successfully");
-                navigate('/')
+                UpdateUser(user);
 
             })
             .catch(err => {
                 setSignupError(err.message);
             })
+    };
+    const UpdateUser = (user) => {
+        updateUserName(user)
+            .then(() => {
+                toast.success("user name is Updated")
+                navigate('/')
+            })
+            .catch((err) => {
+                console.log(err);
+            })
     }
+
     return (
         <div className='my-6'>
             <div className="hero  ">

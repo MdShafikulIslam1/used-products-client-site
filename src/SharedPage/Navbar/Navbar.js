@@ -18,10 +18,19 @@ const Navbar = () => {
 
     const navbarItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/signup'>Sign up</Link></li>
-        <li><Link onClick={handleLogout} >Log Out</Link></li>
-        {/* <li> <button onClick={handleLogout} className='btn btn-primary'>Log Out</button> </li> */}
+
+        {
+            user?.email ?
+                <>
+                    <li><Link onClick={handleLogout} >Log Out</Link></li>
+                </>
+                :
+                <>
+                    <li><Link to='/login'>Login</Link></li>
+                    <li><Link to='/signup'>Sign up</Link></li>
+                </>
+        }
+
     </>
     return (
         <div className="navbar bg-base-100">
