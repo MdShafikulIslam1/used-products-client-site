@@ -44,7 +44,11 @@ const BookingModal = ({ bookingsData, setBookingsData }) => {
                     <h3 className="text-xl font-bold text-center p-3">{title}</h3>
                     <form onSubmit={handleBookingsubmit} >
                         <div className='space-y-2 grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                            <input type="text" disabled defaultValue={user?.displayName} className="input input-bordered input-success w-full " />
+                            <input type="text" disabled
+                                defaultValue={
+                                    user?.displayName ? user?.displayName :
+                                        "user name not found"
+                                } className="input input-bordered input-success w-full " />
                             <input type="text" disabled defaultValue={user?.email} className="input input-bordered input-success w-full " />
                             <input type="text" disabled defaultValue={original_price} className="input input-bordered input-success w-full " />
                             <input name='phone' type="number" placeholder="Your Valid Phone Number" className="input input-bordered input-success w-full " required />

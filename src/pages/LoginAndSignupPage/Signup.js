@@ -12,15 +12,20 @@ const Signup = () => {
 
 
     const handleSignup = data => {
-        console.log(data.name);
         const user = {
             displayName: data.name
-        }
+        };
+        const users = {
+            name: data.name,
+            email: data.email,
+            role: data.role
+        };
+
         createUser(data.email, data.password)
             .then(result => {
                 toast.success("User create successfully");
                 UpdateUser(user);
-
+                saveToDb(users)
             })
             .catch(err => {
                 setSignupError(err.message);
@@ -29,11 +34,23 @@ const Signup = () => {
     const UpdateUser = (user) => {
         updateUserName(user)
             .then(() => {
-                toast.success("user name is Updated")
-                navigate('/')
+                toast.success("user name is update")
             })
             .catch((err) => {
                 console.log(err);
+            })
+    };
+    const saveToDb = (users) => {
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then(res => res.json())
+            .then(data => {
+                navigate('/')
             })
     }
 
@@ -83,6 +100,19 @@ const Signup = () => {
                                 {errors.password && <p className='text-red-900'>{errors.password.message}</p>}
 
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">What type user:</span>
+                                </label>
+                                <select
+                                    {...register("role")}
+                                    className="select select-ghost w-full max-w-xs">
+                                    <option selected>buyer</option>
+                                    <option>seller</option>
+                                </select>
+
+                            </div>
+
                             <input type="submit" value="Sign Up" className='btn btn-primary' />
                         </div>
                         <p className='text-red-800 text-center'>{signupError}</p>

@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Login = () => {
+    const [loginError, setLoginError] = useState('');
     const { loginUser, loginWithGoogle } = useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from.pathname || '/';
 
 
     const handleLogin = data => {
@@ -15,17 +18,18 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 toast.success("User Login Successfully");
-                navigate('/')
+                navigate(from, { replace: true })
             })
             .catch(err => {
                 console.log(err);
-                console.log(err.message);
+                setLoginError(err.message);
             })
 
     }
     const handleLoginWithGoogle = () => {
         loginWithGoogle()
             .then(() => {
+
                 toast.success("Login with google successfully")
             })
             .catch(() => {
@@ -62,6 +66,7 @@ const Login = () => {
                         </div>
                         <input type="submit" value="Login" className='btn btn-primary mt-2' />
                     </div>
+                    <p className='text-red-800 p-3'>{loginError}</p>
 
                 </form>
                 <p className=' p-3 text-center'>Are you new here? <Link className='text-purple-800' to='/signup'>Sign Up</Link> </p>
