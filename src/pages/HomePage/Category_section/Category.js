@@ -13,24 +13,13 @@ const Category = () => {
         }
     });
 
-
-
-    // useEffect(() => {
-    //     fetch('category.json')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             setCategory(data)
-    //         })
-    // }, [])
-
     return (
         <section className='my-6'>
             <div className='text-center'>
                 <h1 className='text-4xl font-bold '>Select Your Best Choice</h1>
                 <p className='text-3xl font-semibold'>Choice your product from the category{category.length}</p>
             </div>
-            <div className='grid gap-6 grid-cols-3'>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     category.map(categoryData => <CategoryCard
                         key={categoryData.category_id}

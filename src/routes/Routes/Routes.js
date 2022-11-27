@@ -4,6 +4,7 @@ import Main from "../../layouts/Main/Main";
 import Blog from "../../pages/BlogPage/Blog";
 import AllUsers from "../../pages/DashboardPages/AllUsersPage/AllUsers";
 import MyOrders from "../../pages/DashboardPages/MyOrders/MyOrders";
+import Payment from "../../pages/DashboardPages/PaymentPage/Payment";
 import AllProducts from "../../pages/HomePage/AllProducts/AllProducts";
 import Home from "../../pages/HomePage/Home/Home";
 import Login from "../../pages/LoginAndSignupPage/Login";
@@ -53,8 +54,12 @@ const router = createBrowserRouter([
                 element: <UseAdminRoute><AllUsers></AllUsers></UseAdminRoute>
             },
             {
-                path: '/dashboard/myOrders',
+                path: '/dashboard',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/dashboard/payment',
+                element: <Payment></Payment>
             },
 
         ]
