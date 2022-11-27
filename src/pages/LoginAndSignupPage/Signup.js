@@ -107,7 +107,7 @@ const Signup = () => {
                                 <select
                                     {...register("role")}
                                     className="select select-ghost w-full max-w-xs">
-                                    <option selected>buyer</option>
+                                    <option defaultValue='buyer'>buyer</option>
                                     <option>seller</option>
                                 </select>
 
