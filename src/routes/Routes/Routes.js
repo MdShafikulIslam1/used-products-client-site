@@ -8,6 +8,7 @@ import MyOrders from "../../pages/DashboardPages/MyOrders/MyOrders";
 import Payment from "../../pages/DashboardPages/PaymentPage/Payment";
 import AllProducts from "../../pages/HomePage/AllProducts/AllProducts";
 import Home from "../../pages/HomePage/Home/Home";
+import AllAddProductsData from "../../pages/HomePage/MoreProductsSection/AllAddProductsData";
 import Login from "../../pages/LoginAndSignupPage/Login";
 import Signup from "../../pages/LoginAndSignupPage/Signup";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
@@ -29,6 +30,15 @@ const router = createBrowserRouter([
                 element: <PrivateRoute> <AllProducts></AllProducts></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
+
+            {
+                path: '/addProductsData/:category_name',
+                element: <AllAddProductsData></AllAddProductsData>,
+                loader: ({ params }) => fetch(`http://localhost:5000/addProductsData/${params.category_name}`)
+            },
+
+
+
             {
                 path: '/login',
                 element: <Login></Login>

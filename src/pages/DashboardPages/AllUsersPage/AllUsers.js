@@ -11,6 +11,24 @@ const AllUsers = () => {
             return data;
         }
     });
+    const handleMakeAdmin = id => {
+        const accept = window.confirm("Are you sure to make Admin?")
+        if (accept) {
+            fetch(`http://localhost:5000/allUsers/admin/${id}`, {
+                method: 'PUT'
+            })
+                .then(res => res.json())
+                .then(data => {
+
+                    if (data.modifiedCount > 0) {
+                        toast.success('Make admin successful.')
+
+                        refetch()
+                    }
+                })
+        }
+
+    }
     const handleDelteUser = (id) => {
         const accept = window.confirm('Are You sure to Delete?');
 
@@ -40,6 +58,7 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Category</th>
+                            <th>Make Admin</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -51,7 +70,13 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user?.role}</td>
-                                <td><button onClick={() => handleDelteUser(user._id)} className='btn btn-md btn-primary'>X</button></td>
+                                <td>
+                                    {
+                                        user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user?._id)} className=' btn text-white btn-md  bg-green-800'>Make Admin</button>
+                                    }
+                                </td>
+                                <td>
+                                    <button onClick={() => handleDelteUser(user._id)} className='btn btn-md btn-primary'>X</button></td>
                             </tr>)
                         }
                     </tbody>
