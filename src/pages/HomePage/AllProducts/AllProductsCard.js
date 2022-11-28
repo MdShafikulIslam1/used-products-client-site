@@ -6,8 +6,8 @@ const AllProductsCard = ({ product, setBookingsData }) => {
     const { img, title, resale_price, original_price, location, posted_date, used_time, seller_name } = product;
     return (
         <div className='my-6'>
-            <div className="card card-compact w-96 shadow-lg">
-                <figure><img className='w-full' src={img} alt="Laptop" /></figure>
+            <div className="card  w-96 shadow-lg h-full flex flex-col items-center justify-evenly">
+                <img className='w-full' src={img} alt="Laptop" />
                 <div className="card-body">
                     <h1 className='text-3xl font-bold text-center text-cyan-600'>{title}</h1>
                     <div className='flex bg-stone-500 p-2 rounded'>

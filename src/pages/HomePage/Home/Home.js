@@ -1,6 +1,7 @@
 import React from 'react';
 import CarouselBanner from '../CarouselBanner/CarouselBanner';
 import Category from '../Category_section/Category';
+import MoreProducts from '../MoreProductsSection/MoreProducts';
 
 const Home = () => {
     return (
@@ -8,6 +9,7 @@ const Home = () => {
 
             <CarouselBanner></CarouselBanner>
             <Category></Category>
+            <MoreProducts></MoreProducts>
         </div>
     );
 };
