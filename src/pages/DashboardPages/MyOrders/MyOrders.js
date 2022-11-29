@@ -10,10 +10,10 @@ const MyOrders = () => {
         fetch(`http://localhost:5000/bookings/myOrders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setMyOrders(data)
             })
     }, [user?.email]);
+
 
     return (
         <div className='my-5'>
@@ -46,9 +46,14 @@ const MyOrders = () => {
                                 <td>{order.phone}</td>
                                 <td>{order.price} tk</td>
                                 <td>
-                                    <Link to='/dashboard/payment'>
-                                        <button className=" btn btn-md btn-primay">Pay</button>
-                                    </Link>
+                                    {
+                                        !order.paid && <Link to={`/dashboard/payment/${order._id}`}>
+                                            <button className=" btn btn-md btn-primay">Pay</button>
+                                        </Link>
+                                    }
+                                    {
+                                        order.paid && <p className='text-cyan-600'>Paid</p>
+                                    }
                                 </td>
                             </tr>)
                         }

@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import Loaing from '../../../SharedPage/Loaing/Loaing';
 
 const AllUsers = () => {
-    const { data: allUsers = [], refetch } = useQuery({
+    const [verified, setVerified] = useState(false);
+    const { data: allUsers = [], refetch, isLoading } = useQuery({
         queryKey: ['allUsers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/allUsers');
@@ -11,6 +13,9 @@ const AllUsers = () => {
             return data;
         }
     });
+    if (isLoading) {
+        return <Loaing></Loaing>
+    }
     const handleMakeAdmin = id => {
         const accept = window.confirm("Are you sure to make Admin?")
         if (accept) {
@@ -28,7 +33,8 @@ const AllUsers = () => {
                 })
         }
 
-    }
+    };
+
     const handleDelteUser = (id) => {
         const accept = window.confirm('Are You sure to Delete?');
 
@@ -47,6 +53,22 @@ const AllUsers = () => {
         }
 
     }
+
+    //make seller user to verified
+    const handleVerifiedSellerUser = (id) => {
+        fetch(`http://localhost:5000/allUsers/seller/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.success("Seller is Verified SuccessFully");
+                    setVerified(true)
+                }
+            })
+    }
+
+
     return (
         <div>
             <h1 className='text-2xl font-bold text-center text-cyan-500 p-3'>AllUsers <span>(included buyers,sellers,admin)</span></h1>
@@ -58,6 +80,7 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>Category</th>
+                            <th>Verification <span>(seller)</span> </th>
                             <th>Make Admin</th>
                             <th>Action</th>
                         </tr>
@@ -72,11 +95,19 @@ const AllUsers = () => {
                                 <td>{user?.role}</td>
                                 <td>
                                     {
+                                        verified && user?.verification && <p>{verified ? "verified" : "Unverified"}</p>
+                                    }
+                                    {
+                                        !verified && user?.role === 'seller' && <button onClick={() => handleVerifiedSellerUser(user?._id)} className='btn btn-info '>Verfiy</button>
+                                    }
+                                </td>
+                                <td>
+                                    {
                                         user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user?._id)} className=' btn text-white btn-md  bg-green-800'>Make Admin</button>
                                     }
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDelteUser(user._id)} className='btn btn-md btn-primary'>X</button></td>
+                                    <button onClick={() => handleDelteUser(user._id)} className='btn btn-primary'>X</button></td>
                             </tr>)
                         }
                     </tbody>
