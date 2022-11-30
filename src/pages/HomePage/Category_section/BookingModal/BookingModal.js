@@ -20,7 +20,7 @@ const BookingModal = ({ bookingsData, setBookingsData }) => {
             price: resale_price,
             img,
         };
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://used-products-resale-server-site.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

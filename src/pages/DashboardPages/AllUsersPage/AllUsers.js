@@ -7,7 +7,7 @@ const AllUsers = () => {
     const { data: allUsers = [], refetch, isLoading } = useQuery({
         queryKey: ['allUsers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allUsers');
+            const res = await fetch('https://used-products-resale-server-site.vercel.app/allUsers');
             const data = res.json();
             return data;
         }
@@ -18,7 +18,7 @@ const AllUsers = () => {
     const handleMakeAdmin = id => {
         const accept = window.confirm("Are you sure to make Admin?")
         if (accept) {
-            fetch(`http://localhost:5000/allUsers/admin/${id}`, {
+            fetch(`https://used-products-resale-server-site.vercel.app/allUsers/admin/${id}`, {
                 method: 'PUT'
             })
                 .then(res => res.json())
@@ -39,7 +39,7 @@ const AllUsers = () => {
 
         if (accept) {
 
-            fetch(`http://localhost:5000/users/${id}`, {
+            fetch(`https://used-products-resale-server-site.vercel.app/users/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -55,7 +55,7 @@ const AllUsers = () => {
 
     //make seller user to verified
     const handleVerifiedSellerUser = (id) => {
-        fetch(`http://localhost:5000/allUsers/seller/${id}`, {
+        fetch(`https://used-products-resale-server-site.vercel.app/allUsers/seller/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

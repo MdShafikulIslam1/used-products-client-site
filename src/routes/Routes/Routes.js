@@ -28,13 +28,13 @@ const router = createBrowserRouter([
             {
                 path: '/categories/:id',
                 element: <PrivateRoute> <AllProducts></AllProducts></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://used-products-resale-server-site.vercel.app/categories/${params.id}`)
             },
 
             {
                 path: '/addProductsData/:category_name',
-                element: <AllAddProductsData></AllAddProductsData>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addProductsData/${params.category_name}`)
+                element: <PrivateRoute><AllAddProductsData></AllAddProductsData></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://used-products-resale-server-site.vercel.app/addProductsData/${params.category_name}`)
             },
 
 
@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/dashboard/payment/${params.id}`)
+                loader: ({ params }) => fetch(`https://used-products-resale-server-site.vercel.app/dashboard/payment/${params.id}`)
             },
             {
                 path: '/dashboard/addProduct',

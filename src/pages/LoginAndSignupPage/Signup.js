@@ -1,4 +1,4 @@
-import React, { useContext, useState, } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
@@ -9,7 +9,7 @@ const Signup = () => {
     const [signupError, setSignupError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUserName } = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const [token] = useToken(createdUserEmail);
     if (token) {
@@ -17,37 +17,27 @@ const Signup = () => {
     }
 
     const handleSignup = data => {
-        const user = {
-            displayName: data.name
-        };
-
-
         createUser(data.email, data.password)
             .then(result => {
+
+
+
                 toast.success("User create successfully");
-                UpdateUser(user);
+
                 saveToDb(data.name, data.email, data.role)
             })
             .catch(err => {
                 setSignupError(err.message);
             })
     };
-    const UpdateUser = (user) => {
-        updateUserName(user)
-            .then(() => {
-                toast.success("user name is update")
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    };
+
     const saveToDb = (name, email, role) => {
         const users = {
             name,
             email,
             role
         };
-        fetch('http://localhost:5000/users', {
+        fetch('https://used-products-resale-server-site.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -31,7 +31,7 @@ const AddProduct = () => {
                         seller_name: user.displayName,
 
                     };
-                    fetch('http://localhost:5000/addProductsData', {
+                    fetch('https://used-products-resale-server-site.vercel.app/addProductsData', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
