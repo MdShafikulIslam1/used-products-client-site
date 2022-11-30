@@ -4,7 +4,6 @@ import toast from 'react-hot-toast';
 import Loaing from '../../../SharedPage/Loaing/Loaing';
 
 const AllUsers = () => {
-    const [verified, setVerified] = useState(false);
     const { data: allUsers = [], refetch, isLoading } = useQuery({
         queryKey: ['allUsers'],
         queryFn: async () => {
@@ -63,7 +62,7 @@ const AllUsers = () => {
             .then(data => {
                 if (data.modifiedCount > 0) {
                     toast.success("Seller is Verified SuccessFully");
-                    setVerified(true)
+                    refetch()
                 }
             })
     }
@@ -95,10 +94,10 @@ const AllUsers = () => {
                                 <td>{user?.role}</td>
                                 <td>
                                     {
-                                        verified && user?.verification && <p>{verified ? "verified" : "Unverified"}</p>
+                                        user?.role === 'seller' && user?.verification && <p>verified</p>
                                     }
                                     {
-                                        !verified && user?.role === 'seller' && <button onClick={() => handleVerifiedSellerUser(user?._id)} className='btn btn-info '>Verfiy</button>
+                                        user?.role === 'seller' && !user?.verification && <button onClick={() => handleVerifiedSellerUser(user?._id)} className='btn btn-info '>Verfiy</button>
                                     }
                                 </td>
                                 <td>
